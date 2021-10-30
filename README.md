@@ -11,18 +11,18 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Siham Argaw   |
+| Student ID    | 921719835      |
+| Student Email | sargaw@sfsu.edu    |
 
 
 
 # Build/Run Instructions
 
 ## Build Instructions
-1. steps here
+1. npm install
 2. steps here
 
 ## Run Instructions
-1. steps here
+1. npm start
 2. steps here 
