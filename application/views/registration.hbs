@@ -2,43 +2,43 @@
     <script defer type="text/javascript" src=" /public/js/formValidation.js"></script> 
 </head>
 <body>
-    <div id="main_content">
-        <div class="outer_grid-container">
+    <div id="main content">
+        <div class="outer_grid-container" id="regContainer">
             <header id="reg_intro">
-                <h1>Registration Form</h1>
+                <h1>Sign Up</h1>
             </header>
-            <form id="form">
+            <form id="model">
                 <div class="inner_grid-container">
-                    <div class="form-control">
+                    <div class="formCheck">
                         <label for="userName">User Name</label>
                         <input type="text" name="userName" id="userName" placeholder="User Name" />
                         <small>Error message</small>
                     </div>
-                    <div class="form-control">
+                    <div class="formCheck">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="email" />
                         <small>Error message</small>
                     </div>
-                    <div class="form-control">
+                    <div class="formCheck">
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="password" />
                         <small>Error message</small>
                     </div>
-                    <div class="form-control">
+                    <div class="formCheck">
                         <label for="confirmPassword">Confirm password</label>
                         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="password again" />
                         <small>Error message</small>
                     </div>
                 </div>
                 <br/>
-                <input type="checkbox" name="checkAge" class="box1" required="" />
+                <input type="checkbox" name="checkAge" class="box1" />
                 <label for=" checkAge " class="box1 " id="box1Label ">I confirm that I am 13+ years of age</label>
                 <br/>
-                <input type="checkbox" name="AcceptRules " class="box2" required="" />
-                <label for=" AcceptRules " class="box2 "><a href="# ">TOS and Privacy Rules</a></label>
+                <input type="checkbox" name="AcceptRules " class="box2 " />
+                <label for="AcceptRules " class="box2 "><a href="# " style="color: #301934">TOS and Privacy Rules</a></label>
 
-                <div class="flex-box ">
-                    <button type="submit " class="registerButton " id="buttonRegister "> Register</button>
+                <div class="flex-box">
+                    <button type="submit " class="registerButton" id="buttonRegister"> Register</button>
                 </div>
             </form>
         </div>
