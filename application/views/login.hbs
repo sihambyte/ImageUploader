@@ -4,16 +4,22 @@
             <header id=" login_intro ">
                 <h1>Welcome Back</h1>
             </header>
-            <form class="inner_grid-container">
-                <label for="userName ">User Name</label>
-                <input type="text " name="userName " id="userName " placeholder="User Name " />
-                <!-- <br/> -->
-                <label for=" password ">Password</label>
-                <input type="password " name="password " id="password " placeholder="password " />
-                <!-- <br/> -->
-                <!-- <br/> -->
-                <button type=" submit " id="logon " class="loginButton"> Login</button>
-                <a href="/register" style="color: #301934">Not a User? Sign up </a>
+            <form>
+                <div class="inner_grid-container">
+                   <label for="userName ">User Name</label>
+                   <input type="text " name="userName " id="userName " placeholder="User Name " />
+                   <!-- <br/> -->
+                   <label for=" password ">Password</label>
+                   <input type="password " name="password " id="password " placeholder="password " />
+                   <!-- <br/> -->
+                   <!-- <br/> -->
+                   {{!-- <button type=" submit " id="logon " class="loginButton"> Login</button>
+                   <a href="/register" style="color: #301934">Not a User? Sign up </a> --}}
+                </div>
+                <div class="flex-box">
+                   <button type=" submit " id="logon " class="registerButton"> Login</button>
+                   <a href="/register" style="color: #301934">Not a User? Sign up </a>
+            </div>
             </form>
         </div>
     </div>
