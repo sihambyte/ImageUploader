@@ -4,13 +4,13 @@
             <header id=" login_intro ">
                 <h1>Welcome Back</h1>
             </header>
-            <form>
+            <form method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
                 <div class="inner_grid-container">
                    <label for="userName ">User Name</label>
-                   <input type="text " name="userName " id="userName " placeholder="User Name " />
+                   <input type="text " name="username" id="userName " placeholder="User Name " required />
                    <!-- <br/> -->
                    <label for=" password ">Password</label>
-                   <input type="password " name="password " id="password " placeholder="password " />
+                   <input type="password " name="password" id="password " placeholder="password " required />
                    <!-- <br/> -->
                    <!-- <br/> -->
                    {{!-- <button type=" submit " id="logon " class="loginButton"> Login</button>
