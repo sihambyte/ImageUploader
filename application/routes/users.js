@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../config/database');
-const { requestPrint, errorPrint, successPrint } = require('../helpers/debug/debugprinters');
+const { errorPrint, successPrint } = require('../helpers/debug/debugprinters');
 const UserError = require("../helpers/error/UserError");
 var bcrypt = require('bcrypt');
+const { registerValidator, loginValidator } = require('../middleware/validation')
 
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //     res.send('respond with a resource');
 // });
-router.post('/register', (req, res, next) => {
+
+router.post('/register', registerValidator, (req, res, next) => {
     let username = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
@@ -17,6 +19,9 @@ router.post('/register', (req, res, next) => {
     /**
      * server side validation goes here
      */
+
+
+
     db.execute("SELECT * FROM users WHERE username=?", [username])
         .then(([results, fields]) => {
             if (results && results.length == 0) {
@@ -68,7 +73,7 @@ router.post('/register', (req, res, next) => {
             }
         })
 })
-router.post('/login', (req, res, next) => {
+router.post('/login', loginValidator, (req, res, next) => {
     let username = req.body.username;
     let password = req.body.password;
     /**
