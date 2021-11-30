@@ -8,9 +8,14 @@
     <link rel="stylesheet" type="text/css" href=" /public/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href=" /public/css/design.css">
     <!-- <script defer type="text/javascript" src=" ../js/formValidation.js"></script> -->
+    <script defer type="text/javascript" src=" /public/js/frontendjs.js"></script> 
   </head>
   <body>
+    {{log this}}
     {{> nav}}
+    {{#if (emptyObject messages)}}
+    {{> flashmessage}}
+    {{/if}}
     {{{body}}}
     {{> footer}}
 
