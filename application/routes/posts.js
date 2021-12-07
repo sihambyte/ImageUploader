@@ -59,4 +59,5 @@ router.post('/postimage', uploader.single("uploadImage"), (req, res, next) => {
             }
         })
 });
+router.get("/search")
 module.exports = router;
