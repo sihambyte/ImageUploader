@@ -1,25 +1,23 @@
 <body>
-    <div id="main_content">
-        <div class="outer_grid-container" id="postContainer">
+   <div class="outer_grid-container" id="postContainer">
             <header id="post_image_intro">
                 <h1>Post Information</h1>
             </header>
-            <form>
-                <div class="inner_grid-container">
+            <form id="post-image" method="POST" enctype="multipart/form-data" action="/posts/postimage">
+                <div class="inner_grid-container" >
                     <label for="postTitle">Title</label>
-                    <input type="text" name="postTitle" placeholder="title" />
+                    <input type="text" name="title" placeholder="title" required/>
                     <label for="postInfo">Description</label>
-                    <input type="text" name=" postInfo" placeholder=" description " />
-                    <label for="image ">Upload Image</label>
-                    <input type="file" name="image " />
+                    <input type="text" name="description" placeholder="description" required/>
+                    <label for="image">Upload Image</label>
+                    <input type="file" name="uploadImage" required/>
                 </div>
-                <input type="checkbox" ame="AcceptPolicy " />
-                <label for="AcceptPolicy " class="Policy "><a href="# " style="color: #301934">Accceptable Use Policy</a></label>
+                <input type="checkbox" name="AcceptPolicy " />
+                <label for="AcceptPolicy" class="Policy"><a href="# " style="color: #301934">Accceptable Use Policy</a></label>
                 <br/>
                 <div class="flex-box ">
-                    <button type="submit " class="registerButton "> Submit</button>
+                    <button type="submit" class="registerButton"> Submit</button>
                 </div>
             </form>
         </div>
-    </div>
 </body>

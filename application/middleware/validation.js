@@ -11,12 +11,10 @@ const checkPassword = (password, confirmPassword) => {
     } else if (password.match(regexCap)) {
         if (password.match(regexDigit)) {
             if (password.match(regexSpecial)) {
-                if (confirmPassword === '') {
-                    return false;
-                } else if (password !== confirmPassword) {
-                    return false;
-                } else {
+                if (confirmPassword === password) {
                     return true;
+                } else {
+                    return false;
                 }
             }
         }

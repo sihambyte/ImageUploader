@@ -15,7 +15,7 @@ router.post('/register', registerValidator, (req, res, next) => {
     let username = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
-    let confirmPassword = req.body.password;
+    let confirmPassword = req.body.confirmPassword;
     /**
      * server side validation goes here
      */
@@ -53,7 +53,10 @@ router.post('/register', registerValidator, (req, res, next) => {
             if (results && results.affectedRows) {
                 successPrint("User.js --> User was created!!");
                 req.flash('success', 'User account has been made!');
-                res.redirect('/login');
+                req.session.save(err => {
+                    res.redirect('/login');
+                })
+
             } else {
                 throw new UserError("Server Error, user could not be created",
                     "/register",
@@ -99,7 +102,10 @@ router.post('/login', loginValidator, (req, res, next) => {
                 req.session.userId = userId;
                 res.locals.logged = true;
                 req.flash('success', "You have been successfully logged in!");
-                res.redirect("/");
+                req.session.save(err => {
+                    res.redirect("/");
+                })
+
             } else {
                 throw new UserError("Invalid username and/or password!", "/login", 200);
             }
@@ -110,7 +116,10 @@ router.post('/login', loginValidator, (req, res, next) => {
                 errorPrint(err.getMessage())
                 req.flash('error', err.getMessage());
                 res.status(err.getStatus())
-                res.redirect('/login');
+                req.session.save(err => {
+                    res.redirect('/login');
+                })
+
             } else {
                 next(err);
             }
