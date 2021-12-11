@@ -36,9 +36,7 @@ function createCard(postData) {
 </div>`;
 }
 
-function executeSearch() {
-    let searchTerm = document.getElementById("search-box").value;
-    console.log(searchTerm);
+function executeSearch(searchTerm) {
     if (!searchTerm) {
         location.replace('/');
         return;
@@ -66,8 +64,13 @@ let flashElement = document.getElementById('flash-message');
 if (flashElement) {
     setFlashMessageFadeOut(flashElement);
 }
-let searchButton = document.getElementById("search-button");
-if (searchButton) {
+// let searchButton = document.getElementById("search-button");
+// if (searchButton) {
+document.getElementById('search-button').onclick = (event) => {
+    event.preventDefault();
+    let searchTerm = document.getElementById("search-box").value;
+    executeSearch(searchTerm);
     // searchButton.addEventListener('click', executeSearch);
-    searchButton.onclick = executeSearch;
-}
+    // searchButton.onclick = executeSearch;
+};
+// }

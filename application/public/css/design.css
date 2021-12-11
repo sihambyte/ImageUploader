@@ -75,7 +75,7 @@
     #flash-message {
         position: fixed;
         left: 50%;
-        top: 25;
+        top: 5;
         transform: translate(-50%, 0);
         z-index: 9999;
     }
@@ -301,6 +301,7 @@
     
     #main_content {
         grid-area: content;
+        margin-top: 25px;
         padding-top: 0.35em;
         padding-bottom: 0.35em;
         display: grid;
@@ -314,7 +315,7 @@
     .card {
         display: grid;
         grid-template-columns: auto;
-        grid-template-rows: 186px 150px;
+        grid-template-rows: 170px 134px;
         border: 0.0625rem solid #cccccc;
         border-radius: 0.25rem;
         box-shadow: 0 2px 2px #dfdede;
