@@ -185,7 +185,6 @@
         /* grid-template-columns: 50% 50%; */
         grid-template-columns: 1fr 1fr;
         /* grid-template-rows: 3fr 1fr 5fr 1fr; */
-        padding-bottom: 0.35em;
         padding-top: 0.35em;
         column-gap: 0.35em;
     }
@@ -201,7 +200,7 @@
         display: grid;
         border: white;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 4fr 1.5fr;
+        grid-template-rows: 40px 340px 65px;
     }
     
     #comment-title {
@@ -213,17 +212,59 @@
     #message-list {
         grid-row-end: span 1;
         grid-column-end: span 1;
+        overflow-y: auto;
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        scroll-behavior: smooth;
+        border: 1px solid #cccccc;
+        box-shadow: -2px 2px 4px 4px #3F2B96;
+        border-radius: 0.35rem;
+        margin-bottom: 0.4em;
+        margin-top: 0.35em;
+    }
+    
+    div[id^=message-] {
+        display: grid;
+        grid-template-rows: 0.3fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2em;
+        padding: 0.25rem;
+        margin: 0.2rem;
+        font-size: 1rem;
+        border: 0.0625rem solid #ced4da;
+        border-radius: 0.25rem;
+        grid-template-areas: "author created" "comment comment";
+    }
+    
+    .author-text {
+        grid-area: author;
+        justify-self: start;
+        color: blue;
+    }
+    
+    .comment-text {
+        grid-area: comment;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 55px;
+        min-height: 55px;
+    }
+    
+    .date-posted {
+        grid-area: created;
+        justify-self: end;
     }
     
     #comment-box {
         grid-row-end: span 1;
         grid-column-end: span 1;
+        border: groove 2px #232f3e;
     }
     
     #info {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 45px 100px 150px;
+        grid-template-rows: 40px 65px 65px;
         width: 100%;
         row-gap: 0.02em;
         column-gap: 0.05em;
@@ -244,11 +285,11 @@
     #comment-box {
         display: grid;
         grid-template-columns: 85% 15%;
-        grid-template-rows: 60px;
+        /* grid-template-rows: 60px; */
         column-gap: 0.01em;
     }
     
-    .CommentButton {
+    #CommentButton {
         background-color: rgb(43, 52, 184);
         color: white;
     }

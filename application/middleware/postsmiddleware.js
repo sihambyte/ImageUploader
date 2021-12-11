@@ -1,5 +1,6 @@
 const { getNRecentPosts, getPostById } = require('../models/Posts');
 const postMiddleware = {}
+const { getCommentsForPost } = require('../models/Comments');
 
 postMiddleware.getRecentPosts = async function(req, res, next) {
     try {
@@ -27,6 +28,17 @@ postMiddleware.getPostById = async function(req, res, next) {
 
     } catch (err) {
         next(err);
+    }
+}
+
+postMiddleware.getCommentsByPostId = async function(req, res, next) {
+    let postId = req.params.id;
+    try {
+        let results = await getCommentsForPost(postId);
+        res.locals.currentPost.comments = results;
+        next();
+    } catch (error) {
+        next(error);
     }
 }
 

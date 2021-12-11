@@ -19,7 +19,7 @@ PostModel.search = (searchTerm) => {
         .catch((err) => Promise.reject(err));
 };
 PostModel.getNRecentPosts = (numberOfPost) => {
-    let baseSQL = "SELECT id, title, description, thumbnail, created FROM posts ORDER BY created DESC LIMIT ? ";
+    let baseSQL = "SELECT id, title, description, thumbnail, created FROM csc317db.posts ORDER BY created DESC LIMIT ? ";
     return db.query(baseSQL, [numberOfPost])
         .then(([results, fields]) => {
             return Promise.resolve(results);
