@@ -69,4 +69,17 @@ const loginValidator = (req, res, next) => {
         next();
     }
 }
-module.exports = { registerValidator, loginValidator }
+const postValidator = (req, res, next) => {
+    let postTitle = req.body.title;
+    let postDesc = req.body.desc;
+    if (postTitle === '' || postDesc === '') {
+        req.flash('error', "inputs can not be empty")
+        req.session.save(err => {
+
+            res.redirect('/postimage');
+        });
+    } else {
+        next();
+    }
+}
+module.exports = { registerValidator, loginValidator, postValidator }

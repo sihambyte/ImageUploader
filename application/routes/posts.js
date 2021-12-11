@@ -6,6 +6,7 @@ var multer = require('multer');
 var crypto = require('crypto');
 var PostModel = require('../models/Posts');
 var PostError = require('../helpers/error/PostError');
+const { postValidator } = require('../middleware/validation');
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -23,7 +24,7 @@ var uploader = multer({
 });
 
 // 
-router.post('/postimage', uploader.single("uploadImage"), (req, res, next) => {
+router.post('/postimage', uploader.single("uploadImage"), postValidator, (req, res, next) => {
     let fileUploaded = req.file.path;
     let fileAsThumbnail = `thumbnail-${req.file.filename}`;
     let destinationOfThumbnail = req.file.destination + "/" + fileAsThumbnail;
