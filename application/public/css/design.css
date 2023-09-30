@@ -46,6 +46,7 @@
         align-content: center;
         grid-auto-rows: 1fr;
         grid-auto-columns: 1fr;
+        
     }
     
     #regContainer {
