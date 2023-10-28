@@ -41,24 +41,46 @@ function executeSearch(searchTerm) {
         location.replace('/');
         return;
     }
+
     let mainContent = document.getElementById('main_content');
     let searchURL = `/posts/search?search=${searchTerm}`;
+
     fetch(searchURL)
         .then((data) => {
             return data.json();
         })
         .then((data_json) => {
             let newMainContentHTML = '';
-            data_json.results.forEach((row) => {
-                newMainContentHTML += createCard(row);
-            });
-            mainContent.innerHTML = new newMainContentHTML;
-            //code after search is complete
-            if (data_json.message) {
-                addFlashFromFrontEnd(data_json.message);
+
+            console.log('Received data:', data_json);
+
+            // Check if data is valid before processing
+            if (data_json && data_json.results && (Array.isArray(data_json.results) || typeof data_json.results === 'object')) {
+                if (Array.isArray(data_json.results)) {
+                    data_json.results.forEach((row) => {
+                        newMainContentHTML += createCard(row);
+                    });
+                } else {
+                    newMainContentHTML += createCard(data_json.results);
+                }
+
+                mainContent.innerHTML = newMainContentHTML;
+
+                // Code executed after search is complete
+                if (data_json.message) {
+                    addFlashFromFrontEnd(data_json.message);
+                }
+            } else {
+                console.error('No valid data received or data structure is incorrect.');
+                // Handle the situation where data isn't as expected
+                // This might include showing an error message to the user or other appropriate actions
             }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            // Handle fetch errors here
+            console.error('Fetch failed:', err);
+            // Additional error handling if necessary
+        });
 }
 let flashElement = document.getElementById('flash-message');
 if (flashElement) {
